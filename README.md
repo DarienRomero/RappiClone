@@ -1,6 +1,6 @@
 # wabi_clone
 
-A new Flutter project.
+Aplicación para realizar compras a bodegas sin salir de casa.
 
 ## Getting Started
 
