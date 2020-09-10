@@ -52,6 +52,23 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+
+
+    flavorDimensions "app"
+
+    productFlavors {
+        dev {
+            dimension "app"
+            resValue "string", "app_name", "Dev WabiClone"
+            versionNameSuffix "-dev"
+        }
+        prod {
+            dimension "app"
+            resValue "string", "app_name", "Wabi Clone"
+            applicationId "com.example.wabi_clone_prod"
+        }
+    }
 }
 
 flutter {
@@ -61,3 +78,5 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
+apply plugin: 'com.google.gms.google-services'
