@@ -1,24 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:wabi_clone/slider_model.dart';
 import 'package:wabi_clone/texto_personalizado.dart';
-class SlideShow extends StatelessWidget {
+class SlideShow extends StatefulWidget {
+  @override
+  _SlideShowState createState() => _SlideShowState();
+}
+
+class _SlideShowState extends State<SlideShow> {
+  
+  PageController pageController = new PageController();
+
+  @override
+  void initState() { 
+    pageController.addListener(() { 
+      //print(pageController.page);
+      Provider.of<SliderModel>(context, listen: false).currentPage = pageController.page;
+    });
+    super.initState(); 
+  }
+  @override
+  void dispose() { 
+    pageController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: SizedBox(
+      child:SizedBox(
         height: 350,
         child: PageView(
+          controller: pageController,
           children: <Widget>[
             _Slide(
               "assets/images/slide1.png",
-              "imagen 1"
+              "Wabi Clone es una aplicación que permite comprar productos de bodegas cercanas."
             ),
             _Slide(
               "assets/images/slide2.png",
-              "imagen 2"
+              "Para comprar, simplemente busca los productos de tu interés y añadelos al carrito.",
             ),
             _Slide(
               "assets/images/slide3.png",
-              "imagen 3"
+              "Wabi Clone se encargará de enviarte los productos comprados hasta tu domicilio."
             ),
           ]
         ),
@@ -37,7 +61,6 @@ class _Slide extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TextoPersonalizado(descripcion, 18, Colors.grey),
         Container(
           width: MediaQuery.of(context).size.width * 0.7,
           height: MediaQuery.of(context).size.width * 0.7,
@@ -45,7 +68,9 @@ class _Slide extends StatelessWidget {
             image: AssetImage(ruta)
           )
         ),
+        TextoPersonalizado(descripcion, 16, Colors.grey),
       ],
     );
   }
 }
+
