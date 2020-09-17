@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wabi_clone/categories_page.dart';
  
 class AppPages extends StatefulWidget {
   @override
@@ -16,13 +17,13 @@ class _AppPageState extends State<AppPages> {
         child: IndexedStack(
           index: _currentIndex,
           children: <Widget>[
-            // CategoriesPage(),
+            CategoriesPage("Calle Putumayo 217"),
             // Scaffold(
             //   body: Center(child: Text("Página 1"))
             // ),
-            Scaffold(
-              body: Center(child: Text("Página 1"))
-            ),
+            // Scaffold(
+            //   body: Center(child: Text("Página 1"))
+            // ),
             Scaffold(
               body: Center(child: Text("Página 2"))
             ),
