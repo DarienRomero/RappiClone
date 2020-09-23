@@ -15,6 +15,7 @@ class TextoPersonalizado extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 10),
       child: Text(
         text,
+        textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: textSize,
           color: textColor
