@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wabi_clone/app_pages.dart';
@@ -5,7 +6,7 @@ import 'package:wabi_clone/boton_personalizado.dart';
 import 'package:wabi_clone/slider_model.dart';
 import 'package:wabi_clone/texto_personalizado.dart';
 import 'package:wabi_clone/slideshow.dart';
- 
+
 class OnboardingPage extends StatefulWidget {
   @override
   _OnboardingPageState createState() => _OnboardingPageState();
@@ -24,30 +25,27 @@ class _OnboardingPageState extends State<OnboardingPage> {
             //inferior de la pantalla
             child: SingleChildScrollView(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  TextoPersonalizado("Wabi Clone", 24, Colors.black),
-                  SlideShow(),
-                  _Dots(),
-                  Container(height: 20),
-                  BotonPersonalizado(
-                    texto: "Usar dirección actual",
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    colorTexto: Colors.white,
-                    bottomMargin: 20,
-                    backgroundColor: Color(0xff1de1fc),
-                    destino: AppPages()
-                  ),
-                  BotonPersonalizado(
-                    texto: "Usar dirección diferente",
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    colorTexto: Colors.grey,
-                    bottomMargin :20,
-                    backgroundColor: Colors.white,
-                    destino: AppPages()
-                  ),
-                ]
-              ),
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    TextoPersonalizado("Wabi Clone", 24, Colors.black),
+                    SlideShow(),
+                    _Dots(),
+                    Container(height: 20),
+                    BotonPersonalizado(
+                        texto: "Usar dirección actual",
+                        width: MediaQuery.of(context).size.width * 0.7,
+                        colorTexto: Colors.white,
+                        bottomMargin: 20,
+                        backgroundColor: Color(0xff1de1fc),
+                        destino: AppPages()),
+                    BotonPersonalizado(
+                        texto: "Usar dirección diferente",
+                        width: MediaQuery.of(context).size.width * 0.7,
+                        colorTexto: Colors.grey,
+                        bottomMargin: 20,
+                        backgroundColor: Colors.white,
+                        destino: AppPages()),
+                  ]),
             ),
           ),
         ),
@@ -55,6 +53,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     );
   }
 }
+
 class _Dots extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -74,24 +73,26 @@ class _Dots extends StatelessWidget {
 
 class _Dot extends StatelessWidget {
   final int index;
-  
-  _Dot(
-    this.index
-  );
-  
+
+  _Dot(this.index);
+
   @override
   Widget build(BuildContext context) {
-
     final double pageViewIndex = Provider.of<SliderModel>(context).currentPage;
-    
+
     return AnimatedContainer(
-      duration: Duration(milliseconds: 200),
-      width: (pageViewIndex >= index - 0.5 && pageViewIndex < index + 0.5 ) ? 14: 12,
-      height: (pageViewIndex >= index - 0.5 && pageViewIndex < index + 0.5 ) ? 14 : 12,
-      margin: EdgeInsets.symmetric(horizontal: 5),
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: (pageViewIndex >= index - 0.5 && pageViewIndex < index + 0.5 ) ? Colors.blue : Colors.grey)
-      );
+        duration: Duration(milliseconds: 200),
+        width: (pageViewIndex >= index - 0.5 && pageViewIndex < index + 0.5)
+            ? 14
+            : 12,
+        height: (pageViewIndex >= index - 0.5 && pageViewIndex < index + 0.5)
+            ? 14
+            : 12,
+        margin: EdgeInsets.symmetric(horizontal: 5),
+        decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: (pageViewIndex >= index - 0.5 && pageViewIndex < index + 0.5)
+                ? Colors.blue
+                : Colors.grey));
   }
 }
