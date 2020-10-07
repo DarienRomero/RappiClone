@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wabi_clone/onboarding_page.dart';
+import 'package:wabi_clone/ui/views/onboarding/onboarding_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:wabi_clone/provider_setup.dart';
 
 import 'constants/app_constants.dart';
-import 'ui/router.dart';
+import 'ui/router_app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Wabi Clone',
         initialRoute: RoutePaths.Splash,
-        onGenerateRoute: Router.generateRoute,
-        onUnknownRoute: Router.onUnknownRoute,
+        onGenerateRoute: RouterApp.generateRoute,
+        onUnknownRoute: RouterApp.onUnknownRoute,
       ),
     );
   }

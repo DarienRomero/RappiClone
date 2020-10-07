@@ -5,6 +5,8 @@ import 'login/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'onboarding/onboarding_view.dart';
+
 class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<UserViewModel>(
@@ -16,7 +18,7 @@ class SplashView extends StatelessWidget {
             ),
           );
 
-        if (model.currentUser != null) return HomeView();
+        if (model.currentUser != null) return OnboardingView();
 
         return LoginView();
       },

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../constants/app_constants.dart';
-import '../ui/views/views.dart';
+import 'views/views.dart';
 
-class Router {
+class RouterApp {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final splash = SplashView();
     final home = HomeView();

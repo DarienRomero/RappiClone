@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/core.dart';
-import '../../../categories_page.dart';
+import '../category/categories_view.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -17,7 +17,6 @@ class _HomeViewState extends State<HomeView> {
       body: SafeArea(
         child: IndexedStack(index: _currentIndex, children: <Widget>[
           CategoriesPage("Calle Putumayo 217"),
-          // CategoriesPage(Provider.of<UserViewModel>(context).currentUser.uid),
           // Scaffold(
           //   body: Center(child: Text("Página 1"))
           // ),
