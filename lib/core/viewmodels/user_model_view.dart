@@ -22,7 +22,7 @@ class UserViewModel extends BaseModel {
   //   notifyListeners();
   // }
 
-  set authenticationService(AuthenticationService authenticationService) {
+  set authenticationService(AuthenticationServiceAbs authenticationService) {
     _repository = authenticationService;
 
     _repository.onAuthStateChanged.listen((User userApp) {
