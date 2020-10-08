@@ -1,18 +1,18 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wabi_clone/app_pages.dart';
-import 'package:wabi_clone/boton_personalizado.dart';
-import 'package:wabi_clone/slider_model.dart';
-import 'package:wabi_clone/texto_personalizado.dart';
-import 'package:wabi_clone/slideshow.dart';
+import 'package:wabi_clone/ui/widgets/boton_personalizado.dart';
+import 'package:wabi_clone/core/viewmodels/slider_model.dart';
+import 'package:wabi_clone/ui/widgets/texto_personalizado.dart';
+import 'package:wabi_clone/ui/views/onboarding/slideshow.dart';
 
-class OnboardingPage extends StatefulWidget {
+import '../home/home_view.dart';
+
+class OnboardingView extends StatefulWidget {
   @override
-  _OnboardingPageState createState() => _OnboardingPageState();
+  _OnboardingViewState createState() => _OnboardingViewState();
 }
 
-class _OnboardingPageState extends State<OnboardingPage> {
+class _OnboardingViewState extends State<OnboardingView> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -37,14 +37,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         colorTexto: Colors.white,
                         bottomMargin: 20,
                         backgroundColor: Color(0xff1de1fc),
-                        destino: AppPages()),
+                        destino: HomeView()),
                     BotonPersonalizado(
                         texto: "Usar dirección diferente",
                         width: MediaQuery.of(context).size.width * 0.7,
                         colorTexto: Colors.grey,
                         bottomMargin: 20,
                         backgroundColor: Colors.white,
-                        destino: AppPages()),
+                        destino: HomeView()),
                   ]),
             ),
           ),
