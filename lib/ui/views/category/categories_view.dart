@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:wabi_clone/constants/app_constants.dart';
+import 'package:wabi_clone/core/models/address.dart';
+import 'package:wabi_clone/core/viewmodels/address_model_view.dart';
 import 'package:wabi_clone/ui/widgets/texto_personalizado.dart';
 
 class CategoriesPage extends StatelessWidget {
-  String direccion;
-  CategoriesPage(this.direccion);
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -13,13 +15,28 @@ class CategoriesPage extends StatelessWidget {
           child: Column(
             children: [
               TextoPersonalizado("MI DIRECCIÓN DE ENTREGA", 12, Colors.black38),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextoPersonalizado(direccion, 14, Colors.black87),
-                  IconButton(
-                      icon: Icon(Icons.keyboard_arrow_down), onPressed: () {})
-                ],
+              Selector<AddressViewModel, Address>(
+                selector: (_, model) => model.currentAddress,
+                builder: (_, address, __) {
+                  final String text =
+                      address?.description ?? 'Selecciona una dirección';
+                  return ListTile(
+                    title: Text(
+                      text,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 14, color: Colors.black87),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
+                    trailing: IconButton(
+                      icon: Icon(Icons.keyboard_arrow_down),
+                      onPressed: () {
+                        Navigator.of(context)
+                            .pushNamed(RoutePaths.AddressScreen);
+                      },
+                    ),
+                  );
+                },
               ),
               Container(
                   padding: EdgeInsets.all(15),
