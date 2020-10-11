@@ -8,6 +8,8 @@ import 'core/core.dart';
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
+final String _apiKey = "";
+
 List<SingleChildWidget> get providers => [
       ...independentServices,
       ...uiConsumableProviders,
@@ -17,6 +19,13 @@ List<SingleChildWidget> get providers => [
 List<SingleChildWidget> independentServices = [
   Provider(
     create: (_) => AuthenticationService(auth: _auth, firestore: _firestore),
+  ),
+  Provider(
+    create: (_) => AddressRepository(
+      firestore: _firestore,
+      auth: _auth,
+      apikey: _apiKey,
+    ),
   ),
 ];
 
@@ -34,5 +43,9 @@ List<SingleChildWidget> dependentServices = [
     update: (_, auth, user, model) => model
       ..authenticationService = auth
       ..currentUser = user,
+  ),
+  ChangeNotifierProxyProvider<AddressRepository, AddressViewModel>(
+    create: (_) => AddressViewModel(),
+    update: (_, apis, model) => model..api = apis,
   ),
 ];

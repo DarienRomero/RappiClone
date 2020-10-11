@@ -14,6 +14,10 @@ class RouterApp {
         return MaterialPageRoute(builder: (_) => home);
       case RoutePaths.LoginScreen:
         return MaterialPageRoute(builder: (_) => LoginView());
+      case RoutePaths.ChooseAddressScreen:
+        return MaterialPageRoute(builder: (_) => ChooseAddress());
+      case RoutePaths.AddressScreen:
+        return MaterialPageRoute(builder: (_) => AddressView());
 
       default:
         final List<String> path = settings.name.split('/');

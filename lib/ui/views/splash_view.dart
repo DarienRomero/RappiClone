@@ -1,6 +1,5 @@
 import '../../core/core.dart';
 
-import 'home/home_view.dart';
 import 'login/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

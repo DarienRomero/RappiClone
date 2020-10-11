@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wabi_clone/ui/views/onboarding/onboarding_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:wabi_clone/provider_setup.dart';
 

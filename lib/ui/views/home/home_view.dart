@@ -16,7 +16,7 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       body: SafeArea(
         child: IndexedStack(index: _currentIndex, children: <Widget>[
-          CategoriesPage("Calle Putumayo 217"),
+          CategoriesPage(),
           // Scaffold(
           //   body: Center(child: Text("Página 1"))
           // ),
