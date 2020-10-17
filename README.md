@@ -13,6 +13,7 @@ android/app/src/prod/google-services.json
 
 **iOS**
 
+![enter image description here](https://miro.medium.com/max/1400/1*2QT0g0XVi72daZz3tYJdmw.gif)
 
 Usamos APIs de Google Maps, es necesario [generar api key](https://cloud.google.com/docs/authentication/api-keys)
 El cual debe ser modificado en `lib/provider_setup.dart`
