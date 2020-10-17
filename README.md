@@ -1,16 +1,45 @@
-# wabi_clone
 
-Aplicación para realizar compras a bodegas sin salir de casa.
+# Rappi Clone Flutter + Firebase
+Este repositorio es una muestra de cómo construir una aplicación en Flutter desde cero a producción.
 
-## Getting Started
+## Empezar a contribuir
 
-This project is a starting point for a Flutter application.
+Estamos trabajando con `flavors`  considerar ubicar el archivo de configuración de firebase para la receta con el que trabajas
+**Android**
+```sh
+android/app/src/dev/google-services.json
+android/app/src/prod/google-services.json
+```
 
-A few resources to get you started if this is your first Flutter project:
+**iOS**
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Usamos APIs de Google Maps, es necesario [generar api key](https://cloud.google.com/docs/authentication/api-keys)
+El cual debe ser modificado en `lib/provider_setup.dart`
+
+**Iniciar por línea de comando**
+dev
+`flutter run --flavor dev`
+prod
+`flutter run --flavor dev`
+
+**Iniciar con vscode**
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Dev",
+      "request": "launch",
+      "type": "dart",
+      "args": ["--flavor", "dev"]
+    },
+    {
+      "name": "Prod",
+      "request": "launch",
+      "type": "dart",
+      "args": ["--flavor", "prod"]
+    }
+  ]
+}
+```
