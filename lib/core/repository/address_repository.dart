@@ -29,7 +29,7 @@ class AddressRepository implements AddressServiceAbs {
     Map<String, dynamic> data = jsonDecode(response.body);
     if (response.statusCode == 200 && data['status'] == 'OK') {
       return (data['predictions'] as List)
-          .map((json) => Address.fromJson(json))
+          .map((json) => Address.fromJson(json, ''))
           .toList();
     }
     return [];
@@ -68,19 +68,17 @@ class AddressRepository implements AddressServiceAbs {
   }
 
   @override
-  Future<List<Address>> getAddressList() async {
+  Stream<List<Address>> getAddressList() {
     final String uid = auth.currentUser.uid;
 
-    QuerySnapshot snapshot = await firestore
+    return firestore
         .collection('address')
         .doc('$uid')
         .collection('address')
-        .get();
-
-    if (snapshot.docs.isEmpty) return [];
-
-    return snapshot.docs
-        .map((QueryDocumentSnapshot doc) => Address.fromJson(doc.data()))
-        .toList();
+        .snapshots()
+        .map((QuerySnapshot snapshot) => snapshot.docs
+            .map((QueryDocumentSnapshot doc) =>
+                Address.fromJson(doc.data(), doc.id))
+            .toList());
   }
 }

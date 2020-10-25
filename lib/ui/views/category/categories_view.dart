@@ -14,30 +14,8 @@ class CategoriesPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              TextoPersonalizado("MI DIRECCIÓN DE ENTREGA", 12, Colors.black38),
-              Selector<AddressViewModel, Address>(
-                selector: (_, model) => model.currentAddress,
-                builder: (_, address, __) {
-                  final String text =
-                      address?.description ?? 'Selecciona una dirección';
-                  return ListTile(
-                    title: Text(
-                      text,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 14, color: Colors.black87),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                    ),
-                    trailing: IconButton(
-                      icon: Icon(Icons.keyboard_arrow_down),
-                      onPressed: () {
-                        Navigator.of(context)
-                            .pushNamed(RoutePaths.AddressScreen);
-                      },
-                    ),
-                  );
-                },
-              ),
+              // TextoPersonalizado("MI DIRECCIÓN DE ENTREGA", 12, Colors.black38),
+
               Container(
                   padding: EdgeInsets.all(15),
                   margin: EdgeInsets.only(bottom: 20),
