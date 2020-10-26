@@ -5,6 +5,7 @@ import 'package:wabi_clone/provider_setup.dart';
 
 import 'constants/app_constants.dart';
 import 'ui/router_app.dart';
+import 'ui/theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: providers,
       child: MaterialApp(
-        title: 'Wabi Clone',
+        theme: AppTheme().theme,
+        title: 'Rappi Clone',
         initialRoute: RoutePaths.Splash,
         onGenerateRoute: RouterApp.generateRoute,
         onUnknownRoute: RouterApp.onUnknownRoute,

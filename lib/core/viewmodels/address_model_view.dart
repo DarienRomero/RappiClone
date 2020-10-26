@@ -36,14 +36,19 @@ class AddressViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  deleteAddress(String id) {}
+  deleteAddress(String id) {
+    _api.deleteAddress(id);
+  }
 
   Future<bool> addAddress(Address address) async {
     return await _api.saveAddress(address);
   }
 
-  loadUserAddress() async {
-    _userAddressList = await _api.getAddressList();
+  loadUserAddress() {
+    _api.getAddressList().listen((list) {
+      _userAddressList = list;
+      notifyListeners();
+    });
     if (_userAddressList.isNotEmpty) _currentAddress = _userAddressList[0];
     notifyListeners();
   }

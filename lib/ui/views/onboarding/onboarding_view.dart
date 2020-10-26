@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wabi_clone/constants/app_constants.dart';
 import 'package:wabi_clone/ui/widgets/boton_personalizado.dart';
 import 'package:wabi_clone/core/viewmodels/slider_model.dart';
 import 'package:wabi_clone/ui/widgets/texto_personalizado.dart';
@@ -27,24 +28,36 @@ class _OnboardingViewState extends State<OnboardingView> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    TextoPersonalizado("Wabi Clone", 24, Colors.black),
+                    TextoPersonalizado("Rappi Clone", 24, Colors.black),
                     SlideShow(),
                     _Dots(),
                     Container(height: 20),
                     BotonPersonalizado(
-                        texto: "Usar dirección actual",
-                        width: MediaQuery.of(context).size.width * 0.7,
-                        colorTexto: Colors.white,
-                        bottomMargin: 20,
-                        backgroundColor: Color(0xff1de1fc),
-                        destino: HomeView()),
+                      texto: "Usar dirección actual",
+                      width: MediaQuery.of(context).size.width * 0.7,
+                      colorTexto: Colors.white,
+                      bottomMargin: 20,
+                      backgroundColor: Color(0xff1de1fc),
+                      onTap: () {
+                        Navigator.pushReplacementNamed(
+                          context,
+                          RoutePaths.Home,
+                        );
+                      },
+                    ),
                     BotonPersonalizado(
-                        texto: "Usar dirección diferente",
-                        width: MediaQuery.of(context).size.width * 0.7,
-                        colorTexto: Colors.grey,
-                        bottomMargin: 20,
-                        backgroundColor: Colors.white,
-                        destino: HomeView()),
+                      texto: "Usar dirección diferente",
+                      width: MediaQuery.of(context).size.width * 0.7,
+                      colorTexto: Colors.grey,
+                      bottomMargin: 20,
+                      backgroundColor: Colors.white,
+                      onTap: () {
+                        Navigator.pushReplacementNamed(
+                          context,
+                          RoutePaths.Home,
+                        );
+                      },
+                    ),
                   ]),
             ),
           ),
