@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wabi_clone/constants/app_constants.dart';
+import 'package:wabi_clone/ui/widgets/navigationBottom.dart';
 import '../../../core/core.dart';
 import '../category/categories_view.dart';
 
@@ -49,32 +51,13 @@ class _HomeViewState extends State<HomeView> {
       body: SafeArea(
         child: IndexedStack(index: _currentIndex, children: <Widget>[
           CategoriesPage(),
-          // Scaffold(
-          //   body: Center(child: Text("Página 1"))
-          // ),
-          // Scaffold(
-          //   body: Center(child: Text("Página 1"))
-          // ),
           Scaffold(body: Center(child: Text("Página 2"))),
           Scaffold(body: Center(child: Text("Página 3"))),
+          Scaffold(body: Center(child: Text("Página 4"))),
+          Scaffold(body: Center(child: Text("Página 5"))),
         ]),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          onTap: (int index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-                icon: Icon(Icons.search), title: Text("Principal")),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.add_shopping_cart),
-                title: Text("Mis compras")),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.person), title: Text("Perfil"))
-          ]),
+      bottomNavigationBar: NavigationBottom()
     );
   }
 }
