@@ -6,7 +6,7 @@ class AppTheme {
     return ThemeData(
       // Define the default brightness and colors.
       // brightness: Brightness.dark,
-      primaryColor: Color(0xFFFE3F32),
+      // primaryColor: Colors.lightBlue[800],
       // accentColor: Colors.cyan[600],
 
       // Define the default font family.
