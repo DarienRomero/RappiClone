@@ -57,6 +57,7 @@ class _HomeViewState extends State<HomeView> {
           // ),
           Scaffold(body: Center(child: Text("Página 2"))),
           Scaffold(body: Center(child: Text("Página 3"))),
+          Scaffold(body: Center(child: Text("Página 3"))),
         ]),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -72,6 +73,9 @@ class _HomeViewState extends State<HomeView> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.add_shopping_cart),
                 title: Text("Mis compras")),
+            // BottomNavigationBarItem(
+            //     icon: Icon(Icons.add_shopping_cart),
+            //     title: Text("compras")),
             BottomNavigationBarItem(
                 icon: Icon(Icons.person), title: Text("Perfil"))
           ]),
