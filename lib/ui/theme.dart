@@ -6,13 +6,13 @@ class AppTheme {
     return ThemeData(
       // Define the default brightness and colors.
       // brightness: Brightness.dark,
-      // primaryColor: Colors.lightBlue[800],
-      // accentColor: Colors.cyan[600],
-
+      primaryColor: Color(0xFFFE3F32),
+      primaryColorLight: Color(0XFFFB925C),
+      accentColor: Color(0xFF00C665),
       // Define the default font family.
       // fontFamily: 'steady',
       // backgroundColor: Colors.grey,
-      scaffoldBackgroundColor: Colors.grey[100],
+      scaffoldBackgroundColor: Color(0xFFF9F9F9),
 
       // Define the default TextTheme. Use this to specify the default
       // text styling for headlines, titles, bodies of text, and more.
