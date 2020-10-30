@@ -6,94 +6,86 @@ import 'package:wabi_clone/core/viewmodels/address_model_view.dart';
 import 'package:wabi_clone/ui/widgets/rappi_bank_widget.dart';
 import 'package:wabi_clone/ui/widgets/texto_personalizado.dart';
 
+class Category {
+  final String path;
+  final String title;
+  final Color colorcard;
+
+  Category(this.path, this.title, this.colorcard);
+}
+
 class CategoriesPage extends StatelessWidget {
+  final List<Category> category = [
+    Category("assets/images/fruta.png", "Frutas", Colors.purple[50]),
+    Category("assets/images/verdura.png", "Verduras", Colors.deepOrange[50]),
+    Category("assets/images/dulce.png", "Dulces", Colors.amber[50]),
+    Category("assets/images/bebida.png", "Bebidas", Colors.red[50]),
+    Category("assets/images/farmacia.png", "Farmacia", Colors.blue[50]),
+    Category("assets/images/veterinaria.png", "Veterinaria",
+        Colors.orangeAccent[50]),
+    Category("assets/images/currier.png", "Courier", Colors.pink[50]),
+  ];
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
               // TextoPersonalizado("MI DIRECCIÓN DE ENTREGA", 12, Colors.black38),
-              RappiBank(),  
+              RappiBank(),
               Container(
-                  padding: EdgeInsets.all(15),
-                  margin: EdgeInsets.only(bottom: 20),
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                      color: Colors.white),
-                  child: Row(
-                    children: [
-                      Icon(Icons.search, color: Colors.black54),
-                      Container(
-                          margin: EdgeInsets.only(left: 5),
-                          child: TextoPersonalizado(
-                              "Encuentra productos y marcas",
-                              14,
-                              Colors.black54)),
-                    ],
-                  )),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Categorie("assets/images/frutas.png", "frutas",
-                      screenWidth * 0.3, screenWidth * 0.4),
-                  Categorie("assets/images/verduras.png", "verduras",
-                      screenWidth * 0.5, screenWidth * 0.4),
-                ],
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+                margin: EdgeInsets.only(bottom: 20),
+                width: MediaQuery.of(context).size.width * 0.9,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  color: Colors.grey[200].withOpacity(0.45),
+                ),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.search,
+                      color: Colors.black54,
+                      size: 18,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 5),
+                      child: TextoPersonalizado(
+                          "¿Qué quieres hoy?", 16, Colors.black54),
+                    ),
+                  ],
+                ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              Wrap(
                 children: [
-                  Categorie("assets/images/dulces.png", "dulces",
-                      screenWidth * 0.5, screenWidth * 0.4),
-                  Categorie("assets/images/bebidas.png", "bebidas",
-                      screenWidth * 0.3, screenWidth * 0.4)
+                  for (var category in category)
+                    Container(
+                      width: 85,
+                      child: Container(
+                        padding: EdgeInsets.all(4),
+                        child: Column(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(14),
+                              decoration: BoxDecoration(
+                                color: category.colorcard,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(8),
+                                ),
+                              ),
+                              child: Image.asset(category.path),
+                            ),
+                            Text(category.title),
+                          ],
+                        ),
+                      ),
+                    ),
                 ],
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class Categorie extends StatelessWidget {
-  final String rutaImagen;
-  final String nombre;
-  final double width;
-  final double heigth;
-  Categorie(this.rutaImagen, this.nombre, this.width, this.heigth);
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 2,
-      shadowColor: Colors.black54,
-      child: Column(
-        children: [
-          Container(
-            padding: EdgeInsets.all(20),
-            width: width,
-            height: heigth,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(10.0)),
-            ),
-            child: FittedBox(
-              child: Hero(
-                tag: rutaImagen,
-                child: Image.asset(rutaImagen, fit: BoxFit.fill),
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(bottom: 15.0),
-            child: Text(nombre),
-          )
-        ],
       ),
     );
   }
