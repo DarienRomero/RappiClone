@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:wabi_clone/constants/app_constants.dart';
 import 'package:wabi_clone/core/models/address.dart';
 import 'package:wabi_clone/core/viewmodels/address_model_view.dart';
+import 'package:wabi_clone/ui/widgets/rappi_bank_widget.dart';
 import 'package:wabi_clone/ui/widgets/texto_personalizado.dart';
 
 class CategoriesPage extends StatelessWidget {
@@ -15,7 +16,7 @@ class CategoriesPage extends StatelessWidget {
           child: Column(
             children: [
               // TextoPersonalizado("MI DIRECCIÓN DE ENTREGA", 12, Colors.black38),
-
+              RappiBank(),  
               Container(
                   padding: EdgeInsets.all(15),
                   margin: EdgeInsets.only(bottom: 20),
