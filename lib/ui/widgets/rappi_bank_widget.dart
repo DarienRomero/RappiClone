@@ -92,7 +92,7 @@ class RappiBank extends StatelessWidget {
                 ],
               ),
               child: Icon(
-                Icons.qr_code_scanner_outlined,
+                Icons.scanner,
                 color: Colors.white,
                 size: 40,
               ),
