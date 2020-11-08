@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+import 'package:wabi_clone/core/repository/category_service.dart';
+import 'package:wabi_clone/core/viewmodels/category_model_view.dart';
 
 import 'core/core.dart';
 
@@ -27,6 +30,9 @@ List<SingleChildWidget> independentServices = [
       apikey: _apiKey,
     ),
   ),
+  Provider(
+    create: (_) => CategoryService(),
+  ),
 ];
 
 List<SingleChildWidget> uiConsumableProviders = [
@@ -47,5 +53,10 @@ List<SingleChildWidget> dependentServices = [
   ChangeNotifierProxyProvider<AddressRepository, AddressViewModel>(
     create: (_) => AddressViewModel(),
     update: (_, apis, model) => model..api = apis,
+  ),
+  ChangeNotifierProvider<CategoryModelView>(
+    create: (BuildContext context) => CategoryModelView(
+      repository: context.read<CategoryService>(),
+    ),
   ),
 ];
