@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wabi_clone/core/models/category.dart';
 import 'package:wabi_clone/core/viewmodels/category_model_view.dart';
 import 'package:wabi_clone/ui/widgets/rappi_bank_widget.dart';
-import 'package:wabi_clone/ui/widgets/texto_personalizado.dart';
 import 'package:provider/provider.dart';
-
-import 'tab_home_shimmer.dart';
+import 'widgets/tab_home_shimmer.dart';
 import 'widgets/category_widget.dart';
 import 'widgets/search_widget.dart';
 
