@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wabi_clone/constants/app_constants.dart';
+import 'package:wabi_clone/ui/views/profile/profile_view.dart';
 import 'package:wabi_clone/ui/widgets/navigationBottom.dart';
 import '../../../core/core.dart';
 import '../category/categories_view.dart';
@@ -48,6 +49,7 @@ class _HomeViewState extends State<HomeView> {
           },
         ),
       ),
+      drawer: ProfileView(),
       body: SafeArea(
         child: IndexedStack(index: _currentIndex, children: <Widget>[
           CategoriesPage(),

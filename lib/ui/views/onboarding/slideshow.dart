@@ -59,7 +59,7 @@ class _Slide extends StatelessWidget {
             width: MediaQuery.of(context).size.width * 0.7,
             height: MediaQuery.of(context).size.width * 0.7,
             child: Image(image: AssetImage(ruta))),
-        TextoPersonalizado(descripcion, 16, Colors.grey),
+        TextoPersonalizado(descripcion, 16, Colors.grey, FontWeight.normal, TextAlign.center),
       ],
     );
   }
