@@ -41,6 +41,7 @@ android {
         applicationId "com.example.wabi_clone"
         minSdkVersion 16
         targetSdkVersion 28
+        multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
