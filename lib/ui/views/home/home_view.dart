@@ -2,10 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wabi_clone/constants/app_constants.dart';
+import 'package:wabi_clone/core/viewmodels/category_model_view.dart';
 import 'package:wabi_clone/ui/views/profile/profile_view.dart';
 import 'package:wabi_clone/ui/widgets/navigationBottom.dart';
 import '../../../core/core.dart';
-import '../category/categories_view.dart';
+import 'tab_home.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -14,6 +15,14 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   int _currentIndex = 0;
+
+  @override
+  initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      context.read<CategoryModelView>().getCategories();
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,17 +58,17 @@ class _HomeViewState extends State<HomeView> {
           },
         ),
       ),
-      drawer: ProfileView(),
       body: SafeArea(
         child: IndexedStack(index: _currentIndex, children: <Widget>[
-          CategoriesPage(),
+          TabHome(),
           Scaffold(body: Center(child: Text("Página 2"))),
           Scaffold(body: Center(child: Text("Página 3"))),
           Scaffold(body: Center(child: Text("Página 4"))),
           Scaffold(body: Center(child: Text("Página 5"))),
         ]),
       ),
-      bottomNavigationBar: NavigationBottom()
+      drawer: ProfileView(),
+      bottomNavigationBar: NavigationBottom(),
     );
   }
 }
