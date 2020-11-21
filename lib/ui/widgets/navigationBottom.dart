@@ -33,10 +33,7 @@ class _NavigationBottomState extends State<NavigationBottom> {
             label: "Promos",
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              FontAwesomeIcons.search,
-              size: 20,
-            ),
+            icon: Icon(FontAwesomeIcons.search, size: 20),
             label: "Buscar",
           ),
           BottomNavigationBarItem(
@@ -68,19 +65,19 @@ class _NavigationBottomState extends State<NavigationBottom> {
       },
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          label: "Inicio",
+          label: "Inicio", 
           icon: Icon(FontAwesomeIcons.home, size: 20),
         ),
         BottomNavigationBarItem(
           icon: Icon(FontAwesomeIcons.percentage, size: 20),
-          label: "Promos",
+          label: "Promos", 
         ),
         BottomNavigationBarItem(
           icon: Icon(
             FontAwesomeIcons.search,
             size: 20,
           ),
-          label: "Buscar",
+          label: "Buscar", 
         ),
         BottomNavigationBarItem(
           icon: Icon(FontAwesomeIcons.headset, size: 20),
@@ -88,7 +85,7 @@ class _NavigationBottomState extends State<NavigationBottom> {
         ),
         BottomNavigationBarItem(
           icon: Icon(FontAwesomeIcons.user, size: 20),
-          label: "Mi perfil",
+          label: "Mi perfil" 
         ),
       ],
     );

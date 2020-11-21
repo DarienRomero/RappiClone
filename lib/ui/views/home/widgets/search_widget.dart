@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:wabi_clone/core/models/category.dart';
 import 'package:wabi_clone/ui/widgets/texto_personalizado.dart';
@@ -22,7 +24,10 @@ class SearchWidget extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.only(left: 5),
-            child: TextoPersonalizado("¿Qué quieres hoy?", 16, Colors.black54),
+            child: Text(
+              "¿Qué quieres hoy?",
+              style: TextStyle(fontSize: 16, color: Colors.black54),
+            ),
           ),
         ],
       ),

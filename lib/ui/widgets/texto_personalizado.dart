@@ -4,15 +4,18 @@ class TextoPersonalizado extends StatelessWidget {
   final String text;
   final double textSize;
   final Color textColor;
-  TextoPersonalizado(this.text, this.textSize, this.textColor);
+  final FontWeight fontWeight;
+  final TextAlign alignment;
+  TextoPersonalizado(this.text, this.textSize, this.textColor, this.fontWeight, this.alignment);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 10),
-      child: Text(
-        text,
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: textSize, color: textColor),
+    return Text(
+      text,
+      textAlign: alignment,
+      style: TextStyle(
+        fontSize: textSize, 
+        color: textColor,
+        fontWeight: fontWeight
       ),
     );
   }
