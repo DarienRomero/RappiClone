@@ -12,7 +12,7 @@ class ChooseAddress extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           title: TextoPersonalizado(
-              "Agrega o escoge\nuna dirección", 18, Colors.black),
+              "Agrega o escoge\nuna dirección", 18, Colors.black, FontWeight.normal, TextAlign.center),
           leading: IconButton(
             icon: Icon(Icons.close),
             onPressed: () {

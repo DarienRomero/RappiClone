@@ -52,7 +52,12 @@ class CategoriesPage extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.only(left: 5),
                       child: TextoPersonalizado(
-                          "¿Qué quieres hoy?", 16, Colors.black54),
+                        "¿Qué quieres hoy?", 
+                        16, 
+                        Colors.black54,
+                        FontWeight.normal,
+                        TextAlign.center
+                      ),
                     ),
                   ],
                 ),
