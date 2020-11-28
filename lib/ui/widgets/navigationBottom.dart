@@ -2,6 +2,8 @@ import 'dart:io';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:wabi_clone/core/models/pages.dart';
 
 class NavigationBottom extends StatefulWidget {
   @override
@@ -9,19 +11,16 @@ class NavigationBottom extends StatefulWidget {
 }
 
 class _NavigationBottomState extends State<NavigationBottom> {
-  int _currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
+    int currentIndex = Provider.of<Pages>(context).page;
     if (Platform.isIOS) {
       return CupertinoTabBar(
         backgroundColor: Colors.transparent,
         activeColor: Theme.of(context).primaryColor,
-        currentIndex: _currentIndex,
+        currentIndex: currentIndex,
         onTap: (int index) {
-          setState(() {
-            _currentIndex = index;
-          });
+          Provider.of<Pages>(context, listen: false).page = index;  
         },
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -54,14 +53,10 @@ class _NavigationBottomState extends State<NavigationBottom> {
       unselectedItemColor: Colors.grey[500],
       unselectedLabelStyle: TextStyle(color: Colors.grey[900]),
       showUnselectedLabels: true,
-      currentIndex: _currentIndex,
+      currentIndex: currentIndex,
       type: BottomNavigationBarType.fixed,
       onTap: (int index) {
-        setState(
-          () {
-            _currentIndex = index;
-          },
-        );
+        Provider.of<Pages>(context, listen: false).page = index;
       },
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
